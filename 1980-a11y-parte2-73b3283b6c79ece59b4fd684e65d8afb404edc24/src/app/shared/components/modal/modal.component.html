@@ -1,0 +1,9 @@
+<div (click)="modalRef.close()" (keydown.esc)="modalRef.close()" class="modal-overlay">
+  <!-- role e att.aria-label adicionados para melhorar acessibilidade de text readers -->
+  <!-- aria-model faz com que os text-readers leiam apenas o conteudo pertencente ao dialog, impedindo de sair do content sem querer -->
+  <div class="modal-content" appFocusTrap appFocusBack role="dialog" aria-model="true" [attr.aria-label]="config.title"
+    (click)="$event.stopPropagation()">
+    <h1 class="modal-title">{{ config.title }} </h1>
+    <ng-container *ngTemplateOutlet="config.templateRef"></ng-container>
+  </div>
+</div>
